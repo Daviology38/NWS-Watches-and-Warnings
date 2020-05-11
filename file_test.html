@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<title>UMass Lowell Weather Center</title>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<link href="assets/css/main.css" rel="stylesheet"/>
+<link href="assets/css/style.css" rel="stylesheet"/>
+<link href="css/bootstrap-4.3.1.css" rel="stylesheet" type="text/css"/>
+<!-- Style Sheet to remove social media icons on mobile -->
+<style>
+		@media screen and (max-width: 575.98px) {
+			ul.icons {
+			display: none;
+			}
+		}
+		</style>
+<style>
+            table.panel-df {
+                    margin-left: auto;
+                    margin-right: auto;
+                    border: none;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    color: black;
+                    font-size: 12px;
+                    table-layout: fixed;
+                    width: 100%;
+                }
+
+                .panel-df tr, th, td {
+                    text-align: right;
+                    vertical-align: middle;
+                    padding: 0.5em 0.5em !important;
+                    line-height: normal;
+                    white-space: normal;
+                    max-width: none;
+                    border: none;
+                }
+
+                .panel-df tbody {
+                    display: table-row-group;
+                    vertical-align: middle;
+                    border-color: inherit;
+                }
+
+                .panel-df tbody tr:nth-child(odd) {
+                    background: #f5f5f5;
+                }
+
+                .panel-df thead {
+                    border-bottom: 1px solid black;
+                    vertical-align: bottom;
+                }
+
+                .panel-df tr:hover {
+                    background: lightblue !important;
+                    cursor: pointer;
+                }
+
+        </style><script crossorigin="anonymous" integrity="sha384-JpP8FXbgAZLkfur7LiK3j9AGBhHNIvF742meBJrjO2ShJDhCG2I1uVvW+0DUtrmc" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.0.1.min.js" type="text/javascript"></script></head>
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+<!-- Main -->
+<div id="main">
+<div class="inner">
+<!-- Header -->
+<header id="header">
+<div class="row" style="display: flex; justify-content: space-between"><div class="col-md-8 col-sm-8 offset-0 col-12">
+<a class="logo" href="index.html"><img alt="Placeholder image" class="rounded img-fluid" src="./images/thumbnail_UMLWxCTR Banner Short.jpg"/></a></div>
+<div class="col-4" style="display: flex; align-items: flex-end; justify-content: flex-end">
+<ul class="icons">
+<li><a class="icon brands fa-twitter" href="https://twitter.com/UMLWeatherCTR"><span class="label">Twitter</span></a></li>
+<li><a class="icon brands fa-facebook-f" href="https://www.facebook.com/UMLWXCTR"><span class="label">Facebook</span></a></li>
+<li><a class="icon brands fa-instagram" href="https://www.instagram.com/umlweatherctr/"><span class="label">Instagram</span></a></li>
+</ul></div></div>
+</header>
+<section>
+<header class="main">
+<h1>Current Watches and Warnings</h1>
+</header>
+</section></div></div>
+<!-- Sidebar -->
+<div id="sidebar">
+<div class="inner">
+<!-- Menu -->
+<nav id="menu">
+<a href="https://www.uml.edu"><image alt="UML" src="images/uml_vertical_logo.png" style="width:50%;"/></a>
+<header class="major">
+<h2><br/>Menu</h2>
+</header>
+<ul>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/index.html">Home</a></li>
+<li><a href="https://storm.uml.edu/~metweb/Blog">Blog</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/umlmodel.php">UML WRF</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/webcast.html">Forecast</a></li>
+<li>
+<span class="opener">Data</span>
+<ul>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/MOSGenerator.html">MOS</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/Radar.html">Radar</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/HelpfulLinks.html">Links</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/almanac.html">Almanac</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/https://storm.uml.edu/~metweb/UMLStorm/Meteograms.html">Meteogram</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/https://storm.uml.edu/~metweb/UMLStorm/Climatology.html">Climatology</a></li>
+<li><a href="https://storm.uml.edu/~data/surface.gif">Surface Map</a></li>
+</ul>
+</li>
+<li>
+<span class="opener">Students</span>
+<ul>
+<li><a href="https://www.uml.edu/Sciences/EEAS/faculty/default.aspx">Faculty</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/AMS.html">AMS Club</a></li>
+<li><a href="https://storm.uml.edu/~metweb/UMLStorm/ForecastGame.html">Forecast Game</a></li>
+<li><a href="https://www.uml.edu/Sciences/EEAS/student-organizations/">Student Organizations</a></li>
+<li><a href="https://www.uml.edu/Sciences/EEAS/research.aspx">Research Opportunities</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+<!-- Section -->
+<section>
+<header class="major">
+<h2>Recent Blog Posts</h2>
+</header>
+<div id="post_feed">
+<div class="mini-posts">
+<article class="item feature" v-for="item in items | more showed">
+<div class="thumb" v-show="item.featured_media" v-thumb="item.featured_media"></div>
+<a class="title" href="{{item.link}}" style="text-align: center; font-size: 20px" target="_blank">{{item.title.rendered}}</a>
+<div class="date" style="font-weight: bold">{{item.date | formatDate}}</div>
+<div class="desc">{{{item.excerpt.rendered | removeMoreLink}}}</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Section -->
+<section>
+<header class="major">
+<h2>Contact Us</h2>
+</header>
+<ul class="contact">
+<li class="icon solid fa-envelope"><a href="mailto:umlweathercenter@gmail.com">umlweathercenter@gmail.com</a></li>
+<li class="icon solid fa-home">Olney 310 <br>265 Riverside Street<br/>Lowell, MA 01854</br></li>
+</ul>
+</section>
+<!-- Footer -->
+<footer id="footer">
+<p class="copyright">© Umass Lowell Weather Center. All rights reserved. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+</footer>
+</div>
+</div>
+</div>
+	
+<!-- Scripts -->
+<script src="assets/js/vue.min.js"></script>
+<script src="assets/js/vue-resource.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/browser.min.js"></script>
+<script src="assets/js/breakpoints.min.js"></script>
+<script src="assets/js/util.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.4.1/snap.svg-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.js"></script>
+<script src="assets/js/script_weather.js"></script>
+</body>
+</html>
