@@ -8,8 +8,8 @@ This program uses the existing awips-python package to import the awips colors f
 The continental U.S. map only shows colors as the legend would be difficult with so many entries. Each regionalized map contains the legend for each area. 
 
 ![ContinentalUSExample](/example_images/continentalus.png)
-Format: ![ContinentalUSExample](url)
 
+![RegionalNEExample](/example_images/ne.png)
 
 There is also a notebook available that coincides with the python script. The script itself just create the plain images with the keys for each region and the overall continental U.S. map.
 
