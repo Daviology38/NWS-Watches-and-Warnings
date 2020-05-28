@@ -7,6 +7,8 @@ This program uses the existing awips-python package to import the awips colors f
 
 The continental U.S. map only shows colors as the legend would be difficult with so many entries. Each regionalized map contains the legend for each area. 
 
+
+
 There is also a notebook available that coincides with the python script. The script itself just create the plain images with the keys for each region and the overall continental U.S. map.
 
 The notebook shows this process as well, but also extends the program using geoviews, holoviews, and bokeh to make the main continental U.S. graphic interactive. This will allow the user to hover over a shaded region on the map to see the specific heading, warning/watch issue times, and a description of the warning/watch that was issued. This graphic can be saved to a file and embedded in a personal web page, more information on that can be found in the geoviews/holoviews documentation.
