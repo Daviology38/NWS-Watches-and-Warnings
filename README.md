@@ -5,4 +5,4 @@ This program uses the NWS API service to grab the current active watches, warnin
 
 This program uses the existing awips-python package to import the awips colors for each watches/warnings/advisory type to make these maps as close as possible to the NWS ones.
 
-The continental U.S. map only shows colors as the legend would be difficult with so many entries. Each regionalized map contains the legend for each area. Future work hopes to take this info and add the information to a Bokeh server to enable the user to mouse over each active alert area and get the information from it. 
+The continental U.S. map only shows colors as the legend would be difficult with so many entries. Each regionalized map contains the legend for each area. 
