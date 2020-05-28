@@ -106,7 +106,7 @@ def make_region_map(proj=ccrs.PlateCarree(), bbox=None):
 
 # Define the figure and add in the states, counties, oceans, and lakes
 fig, ax = make_map()
-reader = shpreader.Reader('countyl010g.shp')
+reader = shpreader.Reader('shapefiles/countyl010g.shp')
 counties = list(reader.geometries())
 COUNTIES = cfeature.ShapelyFeature(counties, ccrs.PlateCarree())
 shape_feature = cfeature.STATES
@@ -116,7 +116,7 @@ ax.add_feature(cfeature.OCEAN.with_scale('50m'))
 
 # Get the shapefiles for the zones and puth the zone names and their
 # geometries into a pandas DataFrame for use when plotting.
-reader = shpreader.Reader('c_02jn20.shp')
+reader = shpreader.Reader('shapefiles/c_02jn20.shp')
 list_records = []
 list_geometries = []
 list_records.append([c.attributes for c in list(reader.records())])
@@ -397,7 +397,7 @@ for group in df.groupby(df[3]):
     plt.tight_layout()
 
     ax.add_feature(cfeature.COASTLINE)  # Add in the counties
-    reader = shpreader.Reader('countyl010g.shp')
+    reader = shpreader.Reader('shapefiles/countyl010g.shp')
     counties = list(reader.geometries())
     COUNTIES = cfeature.ShapelyFeature(counties, ccrs.PlateCarree())
     ax.add_feature(cfeature.OCEAN.with_scale('50m'))
